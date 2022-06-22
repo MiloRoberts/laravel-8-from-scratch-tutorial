@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/app.css">
 <body>
     <article>
-    <?= $post ?>
+    <?php echo $post; ?>
         
     </article>
 
