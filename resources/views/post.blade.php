@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-    <title>My Blog</title>
-    <link rel="stylesheet" href="/app.css">
-<body>
+<x-layout>
     <article>
         <h1>
-            <?php echo $post->title; ?>
+            {{ $post->title }}
         </h1>
         <div>
-            <?php echo $post->body; ?>
+            {!! $post->body !!}
         </div>
         
     </article>
 
         <a href="/">Go Back</a>
-
-</body>
+</x-layout>
