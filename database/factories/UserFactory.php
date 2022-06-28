@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\User; // I had to add this
+
 
 class UserFactory extends Factory
 {
@@ -12,6 +14,9 @@ class UserFactory extends Factory
      *
      * @return array
      */
+
+    protected $model = User::class; // This was missing for some reason, so I've added it.
+
     public function definition()
     {
         return [
