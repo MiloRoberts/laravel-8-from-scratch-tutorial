@@ -11,13 +11,16 @@ class RegisterController extends Controller
     {
         return view('register.create');
     }
-
+    
     public function store()
     {
         $attributes = request()->validate([
             'name' => 'required|max:255',
-            'username' => 'required|max:255|min:3',
-            'email' => 'required|email|max:255',
+            'username' => 'required|min:3|max:255|unique:users,username',
+            // alternative with required class import below
+            // 'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')],
+            // use Illuminate\Validation\Rule;
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:7|max:255'
 
             // below is the more modern way of doing this
