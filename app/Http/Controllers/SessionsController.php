@@ -20,22 +20,20 @@ class SessionsController extends Controller
         ]);
         
 
-        // attempt to authenticate and log in the user
-        // based on the provided credentials
-        if (auth()->attempt($attributes)) {
+        // test that authentication does not match
+        if (! auth()->attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified.'
+            ]);
+            
+        }
+        // otherwise, log in based on the provided credentials
 
-            // prevent session fixation
+        // prevent session fixation
             session()->regenerate();
 
-            // redirect with a success flash message
+        // redirect with a success flash message
             return redirect('/')->with('success', 'Welcome Back!');
-        }
-
-        //  auth failed.
-
-        throw ValidationException::withMessages([
-            'email' => 'Your provided credentials could not be verified.'
-        ]);
 
         // alternative below
 
