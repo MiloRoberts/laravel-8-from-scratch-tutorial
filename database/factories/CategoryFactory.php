@@ -15,8 +15,8 @@ class CategoryFactory extends Factory
     {
         return [
             // I had to make 'name' unique
-            'name' => $this->faker->unique()->word,
-            'slug' => $this->faker->slug
+            'name' => $this->faker->unique()->word(),
+            'slug' => $this->faker->unique()->slug()
         ];
     }
 }
