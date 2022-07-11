@@ -9,6 +9,9 @@ class Comment extends Model
 {
     use HasFactory;
 
+    // declared in service provider instead
+    // protected $guarded = [];
+
     public function post()
     {
         return $this->belongsTo(Post::class);

@@ -9,7 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    // below is declared in service provider instead
+    // protected $guarded = [];
+
+    // alternatives
     // protected $guarded = ['id'];
     // protected $fillable = ['title', 'excerpt', 'body'];
 
